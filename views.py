@@ -59,7 +59,7 @@ def update_student_mark(request):
 def get_pass_percentage(request):
     students = Student.objects.all()
     total_students = students.count()
-    pass_students = students.filter(marks_percentage__gte=50).count()
+    pass_students = students.filter(marks_percentage__gte>=50).count()
     fail_students = total_students - pass_students
     if total_students > 0:
         pass_percentage = (pass_students / total_students) * 100
